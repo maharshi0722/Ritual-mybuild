@@ -12,7 +12,10 @@ const projects = [
   { id: 6, title: "Ritual RPS", url: "https://ritual-rps.vercel.app/", desc: "A fun, on-chain Rock, Paper, Scissors experience.", image: "/6.png" },
   { id: 7, title: "Ritual Roles Stats", url: "https://ritual-role.vercel.app/", desc: "Track, analyze, and view live statistics for various Ritual roles.", image: "/7.png" },
   { id: 8, title: "Ritual Cards", url: "https://ritual-cards-eight.vercel.app/", desc: "Discover and collect unique Ritual ecosystem cards.", image: "/8.png" },
-  { id: 9, title: "Ritual Certificate", url: "https://ritual-certificate.vercel.app/", desc: "Generate, verify, and showcase your Ritual certificates.", image: "/9.png" }
+  { id: 9, title: "Ritual Certificate", url: "https://ritual-certificate.vercel.app/", desc: "Generate, verify, and showcase your Ritual certificates.", image: "/9.png" },
+  { id: 10, title: "Ritual Corridor", url: "https://ritual-road.vercel.app/", desc: "Navigate the pathways of the Ritual Teams.", image: "/10.png" },
+  { id: 11, title: "Ritual Siggy bot", url: "https://siggy-bot-yrtm.vercel.app/", desc: "Siggy awakens forge your digital destiny", image: "/11.png" }
+
 ];
 
 const containerVariants = {
