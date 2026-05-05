@@ -14,8 +14,19 @@ const projects = [
   { id: 8, title: "Ritual Cards", url: "https://ritual-cards-eight.vercel.app/", desc: "Discover and collect unique Ritual ecosystem cards.", image: "/8.png" },
   { id: 9, title: "Ritual Certificate", url: "https://ritual-certificate.vercel.app/", desc: "Generate, verify, and showcase your Ritual certificates.", image: "/9.png" },
   { id: 10, title: "Ritual Corridor", url: "https://ritual-road.vercel.app/", desc: "Navigate the pathways of the Ritual Teams.", image: "/10.png" },
-  { id: 11, title: "Ritual Siggy bot", url: "https://siggy-bot-yrtm.vercel.app/", desc: "Siggy awakens forge your digital destiny", image: "/11.png" }
+  { id: 11, title: "Ritual Siggy bot", url: "https://siggy-bot-yrtm.vercel.app/", desc: "Siggy awakens forge your digital destiny", image: "/11.png" },
 
+  { id: 12, title: "Ritual Infernet", url: "https://ritual-infernet.vercel.app/", desc: "Explore decentralized inference and compute layers powering Ritual.", image: "/12.png" },
+  { id: 13, title: "Ritual Scheduler", url: "https://ritual-scheduler.vercel.app/", desc: "Automate and manage on-chain tasks with smart scheduling tools.", image: "/13.png" },
+  { id: 14, title: "Ritual Vtune", url: "https://ritual-vtune.vercel.app/", desc: "Optimize and fine-tune performance across Ritual-based systems.", image: "/14.png" },
+  { id: 15, title: "Ritual Symphony", url: "https://ritual-symphony.vercel.app/", desc: "Coordinate multiple agents and workflows in a unified orchestration layer.", image: "/15.png" },
+  { id: 16, title: "Ritual Provers", url: "https://ritual-provers.vercel.app/", desc: "Dive into proof systems and verification mechanisms within Ritual.", image: "/16.png" },
+  { id: 17, title: "Ritual Resonance", url: "https://ritual-resonance.vercel.app/", desc: "Discover interactions and signal flows across the Ritual ecosystem.", image: "/17.png" },
+  { id: 18, title: "Ritual Onchain ID", url: "https://ritual-onchain-id.vercel.app/", desc: "Create and manage decentralized identities directly on-chain.", image: "/18.png" },
+  { id: 19, title: "Ritual Testnet Hub", url: "https://ritual-testnet-hub.vercel.app/", desc: "Access tools, dashboards, and resources for Ritual testnet builders.", image: "/19.png" },
+  { id: 20, title: "Ritual Recognition", url: "https://ritual-recognition.lovable.app/", desc: "Highlight and recognize contributions within the Ritual community.", image: "/20.png" },
+  { id: 21, title: "Ritual SocialFi", url: "https://ritual-socialfi.lovable.app/", desc: "A social + finance layer blending community and on-chain incentives.", image: "/21.png" },
+  { id: 22, title: "Ritual Builder Spotlight", url: "https://ritual-builder-spotlight.vercel.app/", desc: "Showcasing builders, projects, and innovations in the Ritual ecosystem.", image: "/22.png" }
 ];
 
 const containerVariants = {
