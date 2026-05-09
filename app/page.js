@@ -26,7 +26,11 @@ const projects = [
   { id: 19, title: "Ritual Testnet Hub", url: "https://ritual-testnet-hub.vercel.app/", desc: "Access tools, dashboards, and resources for Ritual testnet builders.", image: "/19.png" },
   { id: 20, title: "Ritual Recognition", url: "https://ritual-recognition.lovable.app/", desc: "Highlight and recognize contributions within the Ritual community.", image: "/20.png" },
   { id: 21, title: "Ritual SocialFi", url: "https://ritual-socialfi.lovable.app/", desc: "A social + finance layer blending community and on-chain incentives.", image: "/21.png" },
-  { id: 22, title: "Ritual Builder Spotlight", url: "https://ritual-builder-spotlight.vercel.app/", desc: "Showcasing builders, projects, and innovations in the Ritual ecosystem.", image: "/22.png" }
+  { id: 22, title: "Ritual Builder Spotlight", url: "https://ritual-builder-spotlight.vercel.app/", desc: "Showcasing builders, projects, and innovations in the Ritual ecosystem.", image: "/22.png" },
+
+  { id: 23, title: "Ritual Rock onchain Game", url: "https://ritual-rock-game.vercel.app/", desc: "A fast-paced Ritual mini-game built for fun and interactive gameplay.", image: "/23.png" },
+  { id: 24, title: "Ritual Resource Hub", url: "https://ritual-resource-hub.vercel.app/", desc: "A curated hub of resources, tools, and guides for the Ritual ecosystem.", image: "/24.png" },
+  { id: 25, title: "Ritual Expense App", url: "https://ritual-share-app.lovable.app/", desc: "Share Ritual content, ideas, and ecosystem updates with the community.", image: "/25.png" }
 ];
 
 const containerVariants = {
