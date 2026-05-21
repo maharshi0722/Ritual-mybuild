@@ -1,186 +1,467 @@
 "use client";
-
+import "@fontsource/space-grotesk/700.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/jetbrains-mono/600.css";
 import { motion } from "framer-motion";
-import { ArrowRight, Globe } from "lucide-react";
+import {
+  ArrowRight,
+  Search,
+  Globe,
+  Sparkles,
+  FolderGit2
+} from "lucide-react";
 
-const projects = [
-  { id: 1, title: "Ritual Quiz", url: "https://ritual-net.vercel.app/", desc: "Test your knowledge and challenge yourself with the interactive Ritual Quiz.", image: "/1.png" },
-  { id: 2, title: "Ritual Learning Hub", url: "https://rituallearninghub.vercel.app/", desc: "Your central educational platform for mastering the Ritual ecosystem.", image: "/2.png" },
-  { id: 3, title: "Ritual Hub", url: "https://ritualhub.vercel.app/", desc: "The core navigator and central dashboard for all things Ritual.", image: "/3.png" },
-  { id: 4, title: "Ritual Maps", url: "https://ritual-maps.vercel.app/", desc: "Explore and navigate the intricate landscape of the Ritual network.", image: "/4.png" },
-  { id: 5, title: "Ritual Marketplace", url: "https://ritual-prediction-market.vercel.app/", desc: "A decentralized prediction market powered by Ritual technology.", image: "/5.png" },
-  { id: 6, title: "Ritual RPS", url: "https://ritual-rps.vercel.app/", desc: "A fun, on-chain Rock, Paper, Scissors experience.", image: "/6.png" },
-  { id: 7, title: "Ritual Roles Stats", url: "https://ritual-role.vercel.app/", desc: "Track, analyze, and view live statistics for various Ritual roles.", image: "/7.png" },
-  { id: 8, title: "Ritual Cards", url: "https://ritual-cards-eight.vercel.app/", desc: "Discover and collect unique Ritual ecosystem cards.", image: "/8.png" },
-  { id: 9, title: "Ritual Certificate", url: "https://ritual-certificate.vercel.app/", desc: "Generate, verify, and showcase your Ritual certificates.", image: "/9.png" },
-  { id: 10, title: "Ritual Corridor", url: "https://ritual-road.vercel.app/", desc: "Navigate the pathways of the Ritual Teams.", image: "/10.png" },
-  { id: 11, title: "Ritual Siggy bot", url: "https://siggy-bot-yrtm.vercel.app/", desc: "Siggy awakens forge your digital destiny", image: "/11.png" },
+/* KEEP YOUR FULL PROJECTS ARRAY HERE */
+const projects = [ { id: 1, title: "Ritual Quiz", url: "https://ritual-net.vercel.app/", desc: "Test your knowledge and challenge yourself with the interactive Ritual Quiz.", image: "/1.png" }, { id: 2, title: "Ritual Learning Hub", url: "https://rituallearninghub.vercel.app/", desc: "Your central educational platform for mastering the Ritual ecosystem.", image: "/2.png" }, { id: 3, title: "Ritual Hub", url: "https://ritualhub.vercel.app/", desc: "The core navigator and central dashboard for all things Ritual.", image: "/3.png" }, { id: 4, title: "Ritual Maps", url: "https://ritual-maps.vercel.app/", desc: "Explore and navigate the intricate landscape of the Ritual network.", image: "/4.png" }, { id: 5, title: "Ritual Marketplace", url: "https://ritual-prediction-market.vercel.app/", desc: "A decentralized prediction market powered by Ritual technology.", image: "/5.png" }, { id: 6, title: "Ritual RPS", url: "https://ritual-rps.vercel.app/", desc: "A fun, on-chain Rock, Paper, Scissors experience.", image: "/6.png" }, { id: 7, title: "Ritual Roles Stats", url: "https://ritual-role.vercel.app/", desc: "Track, analyze, and view live statistics for various Ritual roles.", image: "/7.png" }, { id: 8, title: "Ritual Cards", url: "https://ritual-cards-eight.vercel.app/", desc: "Discover and collect unique Ritual ecosystem cards.", image: "/8.png" }, { id: 9, title: "Ritual Certificate", url: "https://ritual-certificate.vercel.app/", desc: "Generate, verify, and showcase your Ritual certificates.", image: "/9.png" }, { id: 10, title: "Ritual Corridor", url: "https://ritual-road.vercel.app/", desc: "Navigate the pathways of the Ritual Teams.", image: "/10.png" }, { id: 11, title: "Ritual Siggy bot", url: "https://siggy-bot-yrtm.vercel.app/", desc: "Siggy awakens forge your digital destiny", image: "/11.png" }, { id: 12, title: "Ritual Infernet", url: "https://ritual-infernet.vercel.app/", desc: "Explore decentralized inference and compute layers powering Ritual.", image: "/12.png" }, { id: 13, title: "Ritual Scheduler", url: "https://ritual-scheduler.vercel.app/", desc: "Automate and manage on-chain tasks with smart scheduling tools.", image: "/13.png" }, { id: 14, title: "Ritual Vtune", url: "https://ritual-vtune.vercel.app/", desc: "Optimize and fine-tune performance across Ritual-based systems.", image: "/14.png" }, { id: 15, title: "Ritual Symphony", url: "https://ritual-symphony.vercel.app/", desc: "Coordinate multiple agents and workflows in a unified orchestration layer.", image: "/15.png" }, { id: 16, title: "Ritual Provers", url: "https://ritual-provers.vercel.app/", desc: "Dive into proof systems and verification mechanisms within Ritual.", image: "/16.png" }, { id: 17, title: "Ritual Resonance", url: "https://ritual-resonance.vercel.app/", desc: "Discover interactions and signal flows across the Ritual ecosystem.", image: "/17.png" }, { id: 18, title: "Ritual Onchain ID", url: "https://ritual-onchain-id.vercel.app/", desc: "Create and manage decentralized identities directly on-chain.", image: "/18.png" }, { id: 19, title: "Ritual Testnet Hub", url: "https://ritual-testnet-hub.vercel.app/", desc: "Access tools, dashboards, and resources for Ritual testnet builders.", image: "/19.png" }, { id: 20, title: "Ritual Recognition", url: "https://ritual-recognition.lovable.app/", desc: "Highlight and recognize contributions within the Ritual community.", image: "/20.png" }, { id: 21, title: "Ritual SocialFi", url: "https://ritual-socialfi.lovable.app/", desc: "A social + finance layer blending community and on-chain incentives.", image: "/21.png" }, { id: 22, title: "Ritual Builder Spotlight", url: "https://ritual-builder-spotlight.vercel.app/", desc: "Showcasing builders, projects, and innovations in the Ritual ecosystem.", image: "/22.png" }, { id: 23, title: "Ritual Rock onchain Game", url: "https://ritual-rock-game.vercel.app/", desc: "A fast-paced Ritual mini-game built for fun and interactive gameplay.", image: "/23.png" }, { id: 24, title: "Ritual Resource Hub", url: "https://ritual-resource-hub.vercel.app/", desc: "A curated hub of resources, tools, and guides for the Ritual ecosystem.", image: "/24.png" }, { id: 25, title: "Ritual Expense App", url: "https://ritual-share-app.lovable.app/", desc: "Share Ritual content, ideas, and ecosystem updates with the community.", image: "/25.png" }, { id: 26, title: "Ritualist Gallery", url: "http://ritualist-fams.vercel.app", desc: "A gallery showcasing Ritual creators, community art, stickers, memes, and ecosystem culture.", image: "/26.png" }, { id: 27, title: "Ritty Gallery", url: "https://rittyfams.netlify.app/", desc: "Explore Ritty-inspired creations, community collections, and Ritual ecosystem visuals.", image: "/27.png" }, { id: 28, title: "Ritual Artist Archive", url: "http://ritual-archives.lovable.app", desc: "A permanent archive preserving Ritual artists, stickers, GIFs, memes, collections, and creator history.", image: "/28.png" }, { id: 29, title: "All Ritual Fams Gallery", url: "https://rittyfams.netlify.app/", desc: "A community gallery celebrating creations, memories, and contributions from the Ritual family.", image: "/29.png" } ];
 
-  { id: 12, title: "Ritual Infernet", url: "https://ritual-infernet.vercel.app/", desc: "Explore decentralized inference and compute layers powering Ritual.", image: "/12.png" },
-  { id: 13, title: "Ritual Scheduler", url: "https://ritual-scheduler.vercel.app/", desc: "Automate and manage on-chain tasks with smart scheduling tools.", image: "/13.png" },
-  { id: 14, title: "Ritual Vtune", url: "https://ritual-vtune.vercel.app/", desc: "Optimize and fine-tune performance across Ritual-based systems.", image: "/14.png" },
-  { id: 15, title: "Ritual Symphony", url: "https://ritual-symphony.vercel.app/", desc: "Coordinate multiple agents and workflows in a unified orchestration layer.", image: "/15.png" },
-  { id: 16, title: "Ritual Provers", url: "https://ritual-provers.vercel.app/", desc: "Dive into proof systems and verification mechanisms within Ritual.", image: "/16.png" },
-  { id: 17, title: "Ritual Resonance", url: "https://ritual-resonance.vercel.app/", desc: "Discover interactions and signal flows across the Ritual ecosystem.", image: "/17.png" },
-  { id: 18, title: "Ritual Onchain ID", url: "https://ritual-onchain-id.vercel.app/", desc: "Create and manage decentralized identities directly on-chain.", image: "/18.png" },
-  { id: 19, title: "Ritual Testnet Hub", url: "https://ritual-testnet-hub.vercel.app/", desc: "Access tools, dashboards, and resources for Ritual testnet builders.", image: "/19.png" },
-  { id: 20, title: "Ritual Recognition", url: "https://ritual-recognition.lovable.app/", desc: "Highlight and recognize contributions within the Ritual community.", image: "/20.png" },
-  { id: 21, title: "Ritual SocialFi", url: "https://ritual-socialfi.lovable.app/", desc: "A social + finance layer blending community and on-chain incentives.", image: "/21.png" },
-  { id: 22, title: "Ritual Builder Spotlight", url: "https://ritual-builder-spotlight.vercel.app/", desc: "Showcasing builders, projects, and innovations in the Ritual ecosystem.", image: "/22.png" },
-
-  { id: 23, title: "Ritual Rock onchain Game", url: "https://ritual-rock-game.vercel.app/", desc: "A fast-paced Ritual mini-game built for fun and interactive gameplay.", image: "/23.png" },
-  { id: 24, title: "Ritual Resource Hub", url: "https://ritual-resource-hub.vercel.app/", desc: "A curated hub of resources, tools, and guides for the Ritual ecosystem.", image: "/24.png" },
-  { id: 25, title: "Ritual Expense App", url: "https://ritual-share-app.lovable.app/", desc: "Share Ritual content, ideas, and ecosystem updates with the community.", image: "/25.png" }
-];
-
-const containerVariants = {
+const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 }
+    transition: { staggerChildren: 0.08 }
   }
 };
 
-const itemVariants = {
+const item = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 400, damping: 30 } }
+  show: { opacity: 1, y: 0 }
 };
 
 export default function Home() {
   return (
-    <main className="min-h-screen text-slate-900 selection:bg-[#5b3cff]/20 relative overflow-hidden font-sans">
-      
-      {/* --- BANGER BACKGROUND (Restored) --- */}
-      <div className="fixed inset-0 z-[-1] bg-[#f8f9fc] pointer-events-none">
-        {/* Subtle Developer Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        
-        {/* Animated Glowing Mesh Orbs */}
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-[#5b3cff]/20 to-purple-400/20 blur-[100px] animate-[pulse_8s_ease-in-out_infinite] mix-blend-multiply" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-tl from-indigo-400/20 to-blue-400/20 blur-[100px] animate-[pulse_10s_ease-in-out_infinite_reverse] mix-blend-multiply" />
-        <div className="absolute top-[40%] left-[20%] w-[30vw] h-[30vw] rounded-full bg-[#5b3cff]/10 blur-[80px] animate-[ping_12s_ease-in-out_infinite] mix-blend-multiply" />
+    <main className="min-h-screen bg-[#f8f9fc] overflow-hidden font-['Inter']">
+
+      {/* BG */}
+
+      <div className="fixed inset-0 -z-10">
+
+        <div className="
+        absolute inset-0
+        bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),
+        linear-gradient(to_bottom,#80808012_1px,transparent_1px)]
+        bg-[size:28px_28px]
+        "/>
+
+        <div className="
+        absolute top-0 left-0
+        w-[500px]
+        h-[500px]
+        bg-purple-500/10
+        blur-[120px]
+        rounded-full"/>
+
       </div>
 
-      {/* --- HERO SECTION --- */}
-      <div className="relative pt-10 pb-12 sm:pt-14 sm:pb-16 z-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center">
-          
-          {/* Logo Container */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
-            className="mb-5"
-          >
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl bg-white/70 backdrop-blur-xl border border-white/80 shadow-xl shadow-[#5b3cff]/10 flex items-center justify-center overflow-hidden group hover:scale-105 transition-transform duration-300">
-              <img 
-                src="/logo.png" 
-                alt="Ritual Logo" 
-                className="w-full h-full object-contain drop-shadow-sm"
-                onError={(e) => {
-                  e.target.src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop";
-                }}
-              />
+
+
+      {/* NAVBAR */}
+
+      <nav className="
+      sticky top-0
+      z-50
+      bg-white/70
+      backdrop-blur-xl
+      border-b">
+
+        <div className="
+        max-w-7xl mx-auto
+        px-6 py-5
+        flex justify-between">
+
+          <div className="flex gap-3 items-center">
+
+            <img
+            src="/logo.png"
+            className="w-11 h-11"/>
+
+            <div>
+
+              <h1 className="
+              font-['Space_Grotesk']
+              text-xl
+              font-bold">
+
+                Ritual MyBuilds
+
+              </h1>
+
+              <p className="
+              text-xs text-slate-500">
+
+                Builder Portfolio
+
+              </p>
+
             </div>
-          </motion.div>
 
-          {/* Status Pill */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-white/80 mb-5 shadow-sm shadow-[#5b3cff]/5"
-          >
-            <span className="text-[15px] sm:text-lg font-mono font-bold tracking-widest uppercase text-slate-700">Ritual Net</span>
-          </motion.div>
-          
-          {/* Main Title */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#5b3cff] via-indigo-500 to-purple-600 drop-shadow-sm px-2"
-          >
-            My Build Collection
-          </motion.h1>
-          
-          {/* Subtitle */}
-          <motion.p 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-sm sm:text-base md:text-lg text-slate-600/90 max-w-2xl mx-auto font-medium leading-relaxed px-4"
-          >
-            A curated portfolio of high-performance applications built by <span className="text-[#5b3cff] font-bold bg-[#5b3cff]/10 px-2 py-0.5 rounded-md whitespace-nowrap">Maharshi</span>.
-          </motion.p>
+          </div>
+
+
+
+          <div className="
+          bg-white
+          px-4 py-2
+          rounded-full
+          shadow
+          font-['JetBrains_Mono']">
+
+            {projects.length} Projects
+
+          </div>
+
         </div>
-      </div>
 
-      {/* --- PROJECTS GRID (Larger, Glassmorphism, Legit Layout) --- */}
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-24 sm:pb-32 z-10">
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-        >
-          {projects.map((project, index) => (
-            <motion.a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={project.id}
-              variants={itemVariants}
-              whileHover={{ y: -6 }}
-              /* INCREASED SIZE & ADDED GLASSMORPHISM */
-              className="group flex flex-col min-h-[280px] sm:min-h-[300px] p-7 sm:p-8 rounded-[2rem] bg-white/80 backdrop-blur-xl border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(91,60,255,0.12)] hover:border-[#5b3cff]/30 transition-all duration-500 relative overflow-hidden"
-            >
-              
-              <div className="flex justify-between items-start gap-6 flex-grow mb-8 z-10">
-                {/* Text Content */}
-                <div className="flex-1">
-                  {/* Mono Index Number */}
-                  <span className="block text-xs font-mono text-slate-400 mb-4 tracking-wider font-semibold">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-[#5b3cff] transition-colors duration-300 leading-tight tracking-tight">
-                    {project.title}
-                  </h3>
-                  <p className="text-[15px] text-slate-500 leading-relaxed font-medium">
-                    {project.desc}
-                  </p>
-                </div>
-                
-                {/* Little Aside Image - Scaled up slightly */}
-                <div className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-2xl overflow-hidden bg-white border-2 border-white shadow-md group-hover:shadow-xl relative transition-shadow duration-500">
-                  <div className="absolute inset-0 bg-[#5b3cff]/0 group-hover:bg-[#5b3cff]/5 mix-blend-overlay transition-colors duration-500 z-10" />
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-out"
-                    onError={(e) => {
-                      e.target.src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop";
-                    }}
-                  />
-                </div>
-              </div>
+      </nav>
 
-              {/* Bottom Footer Link */}
-              <div className="flex items-center justify-between pt-5 border-t border-slate-200/60 mt-auto z-10">
-                <div className="flex items-center gap-2 text-[14px] font-bold text-slate-500 group-hover:text-[#5b3cff] transition-colors duration-300">
-                  <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span>Visit Application</span>
-                </div>
-                <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-[#5b3cff] group-hover:-rotate-45 transition-all duration-300" />
-              </div>
 
-              {/* Subtle hover gradient overlay on the card itself */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 rounded-[2rem]" />
-            </motion.a>
+
+
+
+      {/* HERO */}
+
+      <section className="
+      max-w-6xl
+      mx-auto
+      text-center
+      px-6
+      pt-24
+      pb-20">
+
+        <div className="
+        inline-flex
+        bg-white
+        px-5 py-2
+        rounded-full
+        border">
+
+          Ritual Ecosystem Builder
+
+        </div>
+
+
+        <motion.h1
+
+        initial={{opacity:0,y:20}}
+        animate={{opacity:1,y:0}}
+
+        className="
+        font-['Space_Grotesk']
+        text-6xl
+        md:text-8xl
+        font-bold
+        tracking-[-0.06em]
+        leading-[0.95]
+        mt-8">
+
+          Building Tools,
+          Games &
+
+          <span className="
+          text-transparent
+          bg-clip-text
+          bg-gradient-to-r
+          from-purple-600
+          to-indigo-600">
+
+            {" "}Ritual Culture
+
+          </span>
+
+        </motion.h1>
+
+
+
+        <p className="
+        mt-8
+        text-lg
+        text-slate-500
+        max-w-2xl
+        mx-auto
+        leading-8">
+
+          Collection of games,
+          galleries, dashboards,
+          archives and ecosystem
+          applications built for Ritual.
+
+        </p>
+
+
+
+
+        {/* STATS */}
+
+        <div className="
+        mt-14
+        flex
+        flex-wrap
+        justify-center
+        gap-5">
+
+          {((s)=>(
+
+            <div
+            key={s[1]}
+            className="
+            bg-white
+            rounded-3xl
+            px-8 py-6
+            shadow">
+
+              <h2 className="
+              font-['JetBrains_Mono']
+              text-3xl
+              font-bold">
+
+                {s[0]}
+
+              </h2>
+
+              <p className="
+              text-slate-500
+              mt-1">
+
+                {s[1]}
+
+              </p>
+
+            </div>
+
           ))}
-        </motion.div>
+
+        </div>
+
+      </section>
+
+
+
+
+
+      {/* SEARCH */}
+
+      <div className="
+      max-w-5xl
+      mx-auto
+      px-6
+      mb-14">
+
+        <div className="
+        bg-white
+        rounded-3xl
+        flex
+        items-center
+        gap-4
+        px-6 py-5
+        shadow">
+
+          <Search size={18}/>
+
+          <input
+          placeholder="Search Ritual builds..."
+          className="
+          flex-1
+          outline-none
+          bg-transparent"/>
+
+        </div>
+
       </div>
+
+
+
+
+
+      {/* PROJECTS */}
+
+      <div className="
+      max-w-7xl
+      mx-auto
+      px-6
+      pb-32
+
+      grid
+      md:grid-cols-2
+      lg:grid-cols-3
+      gap-8">
+
+        {projects.map(project=>(
+
+          <motion.a
+
+          whileHover={{y:-8}}
+
+          href={project.url}
+          key={project.id}
+
+          className="
+          bg-white/80
+          rounded-[32px]
+          overflow-hidden
+          backdrop-blur-xl
+          hover:shadow-2xl
+          transition">
+
+            <img
+
+            src={project.image}
+
+            className="
+            h-56
+            w-full
+            object-cover
+            hover:scale-110
+            duration-700"/>
+
+
+
+            <div className="p-7">
+
+              <div className="
+              flex
+              justify-between">
+
+                <span className="
+                font-['JetBrains_Mono']
+                text-xs
+                text-slate-400">
+
+                  #{project.id}
+
+                </span>
+
+                {project.id >=26 && (
+
+                  <span className="
+                  text-xs
+                  bg-purple-100
+                  px-3 py-1
+                  rounded-full
+                  text-purple-700">
+
+                    NEW
+
+                  </span>
+
+                )}
+
+              </div>
+
+
+
+              <h2 className="
+              font-['Space_Grotesk']
+              text-3xl
+              font-semibold
+              mt-3
+              tracking-tight">
+
+                {project.title}
+
+              </h2>
+
+
+
+              <p className="
+              mt-4
+              text-[15px]
+              leading-7
+              text-slate-500">
+
+                {project.desc}
+
+              </p>
+
+
+
+              <div className="
+              mt-8
+              flex
+              justify-between
+              items-center">
+
+                <div className="
+                flex gap-2
+                text-slate-500">
+
+                  <Globe size={18}/>
+                  Visit
+
+                </div>
+
+
+                <ArrowRight
+                className="
+                text-purple-600"/>
+
+              </div>
+
+            </div>
+
+          </motion.a>
+
+        ))}
+
+      </div>
+
+
+
+
+
+      {/* FOOTER */}
+
+      <footer className="
+      border-t
+      py-16">
+
+        <div className="
+        max-w-7xl
+        mx-auto
+        px-6
+        flex
+        justify-between
+        flex-wrap">
+
+          <div>
+
+            <h1 className="
+            font-['Space_Grotesk']
+            text-3xl
+            font-semibold">
+
+              Maharshi
+
+            </h1>
+
+            <p className="
+            text-slate-500">
+
+              Building Ritual ecosystem tools.
+
+            </p>
+
+          </div>
+
+
+
+          <div className="
+          flex
+          gap-3
+          items-center
+          font-['JetBrains_Mono']
+          text-slate-500">
+
+            <FolderGit2 size={18}/>
+
+            {projects.length} Ritual Projects
+
+          </div>
+
+        </div>
+
+      </footer>
+
     </main>
   );
 }
